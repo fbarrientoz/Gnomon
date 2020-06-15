@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_explorar">
+
+    <fragment
+        android:id="@+id/navigation_explorar"
+        android:name="com.uabc.edu.gnomon.ui.explorar.explorar"
+        android:label="@string/title_explorar"
+        tools:layout="@layout/fragment_explorar" />
+
+    <fragment
+        android:id="@+id/navigation_favorito"
+        android:name="com.uabc.edu.gnomon.ui.favoritos.favoritos"
+        android:label="@string/title_favoritos"
+        tools:layout="@layout/favoritos_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_agenda"
+        android:name="com.uabc.edu.gnomon.ui.agenda.agenda"
+        android:label="@string/title_agenda"
+        tools:layout="@layout/agenda_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_mensajes"
+        android:name="com.uabc.edu.gnomon.ui.mensajes.mensajes"
+        android:label="@string/title_mensajes"
+        tools:layout="@layout/mensajes_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="com.uabc.edu.gnomon.ui.perfil.perfil"
+        android:label="@string/title_perfil"
+        tools:layout="@layout/perfil_fragment" />
+</navigation>
