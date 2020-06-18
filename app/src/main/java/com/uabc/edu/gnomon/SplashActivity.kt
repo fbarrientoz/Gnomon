@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
+import com.uabc.edu.gnomon.ui.login.view.Login
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +18,8 @@ class SplashActivity : AppCompatActivity() {
         //4 segundos splash time
         Handler().postDelayed({
             //start maiin activity
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            //startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            startActivity(Intent(this@SplashActivity, Login::class.java))
             //finish activity
             finish()
         },4000)
