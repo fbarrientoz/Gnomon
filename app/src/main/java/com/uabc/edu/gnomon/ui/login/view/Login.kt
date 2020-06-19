@@ -9,6 +9,7 @@ import com.uabc.edu.gnomon.base.BaseActivity
 import com.uabc.edu.gnomon.interactor.login.SingInInteractorimpl
 import com.uabc.edu.gnomon.ui.login.LoginContract
 import com.uabc.edu.gnomon.ui.login.presenter.LoginPresenter
+import com.uabc.edu.gnomon.ui.registro.view.Register
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -22,6 +23,9 @@ class Login : BaseActivity(),LoginContract.View{
         presenter.attachView(this)
         btn_signIn.setOnClickListener{
             signIn()
+        }
+        txtV_registrar.setOnClickListener{
+            navigateToRegister()
         }
     }
 
@@ -53,10 +57,22 @@ class Login : BaseActivity(),LoginContract.View{
     }
 
     override fun navigateToMain() {
-        //startActivity(Intent(this,MainActivity::class.java))
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
 
     override fun navigateToRegister() {
-        //startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this,Register::class.java))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.dettachView()
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        presenter.dettachView()
     }
 }

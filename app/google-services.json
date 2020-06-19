@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "961022204453",
+    "firebase_url": "https://gnomon-ad350.firebaseio.com",
+    "project_id": "gnomon-ad350",
+    "storage_bucket": "gnomon-ad350.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961022204453:android:2c6e262c28f16104713dcc",
+        "android_client_info": {
+          "package_name": "com.uabc.edu.gnomon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961022204453-lijprn2snpl259proguvlain4g94grap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uabc.edu.gnomon",
+            "certificate_hash": "bd6c7051a5dcd4a8a117cc1ee2f6e2dddc9d4a54"
+          }
+        },
+        {
+          "client_id": "961022204453-qeomqqeve7euo7h3e0neus0puksrns1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqve7Q5-hBc5e_ojCUQmV1bSI4NTiRqSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961022204453-qeomqqeve7euo7h3e0neus0puksrns1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
