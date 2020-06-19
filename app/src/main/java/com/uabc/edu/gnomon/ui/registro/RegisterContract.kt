@@ -19,7 +19,7 @@ interface RegisterContract {
         fun checkEmptyName(fullname: String):Boolean
         fun checkEmptyEmailAndName(fullname:String,email:String):Boolean
         fun checkValidEmail(email:String):Boolean
-        fun checkEmptyPassword(pw1:String,pw2:String):Boolean
+        fun checkEmptyPassword(pw1:String):Boolean
         fun checkPasswordsMatch(pw1:String,pw2:String):Boolean
         fun singUp(fullname:String,email:String,password:String)
     }

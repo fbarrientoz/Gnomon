@@ -33,12 +33,12 @@ class RegisterPresenter(registerInteractor: RegisterInteractor):RegisterContract
         return fullname.isEmpty() or email.isEmpty()
     }
 
-    override fun checkValidEmail(email: String): Boolean {
+    override fun  checkValidEmail(email: String): Boolean {
         return PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    override fun checkEmptyPassword(pw1: String, pw2: String): Boolean {
-        return pw1.isEmpty() or pw2.isEmpty()
+    override fun checkEmptyPassword(pw1: String): Boolean {
+        return pw1.isEmpty()
     }
 
     override fun checkPasswordsMatch(pw1: String, pw2: String): Boolean {
@@ -46,6 +46,7 @@ class RegisterPresenter(registerInteractor: RegisterInteractor):RegisterContract
     }
 
     override fun singUp(fullname: String, email: String, password: String) {
+        view?.showProgress()
         registerInteractor?.signUp(fullname,email,password, object: RegisterInteractor.RegisterCallback{
             override fun onRegisterSuccess() {
                 view?.navigateToMain()

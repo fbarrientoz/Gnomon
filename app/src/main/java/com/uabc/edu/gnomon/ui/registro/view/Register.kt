@@ -45,23 +45,30 @@ class Register : BaseActivity(), RegisterContract.RegisterView {
         val pw1:String = et_password_1.text.toString().trim()
         val pw2:String = et_password_2.text.toString().trim()
 
-        if(presenter.checkEmptyName(fullname))
+        if(presenter.checkEmptyName(fullname)) {
             et_nombre.error = "Campo nombre vacìo"
             return
-
-        if (presenter.checkValidEmail(email))
+        }
+        if (!presenter.checkValidEmail(email)) {
             et_email_registro.error = "Correo invalido"
             return
+        }
 
-        if (presenter.checkEmptyPassword(pw1,pw2))
+        if (presenter.checkEmptyPassword(pw1)) {
             et_password_1.error = "Campo contraseña vacío"
-            et_password_2.error = "Campo confirmación contraseña vacío"
             return
+        }
 
-        if (!presenter.checkPasswordsMatch(pw1,pw2))
+        if (presenter.checkEmptyPassword(pw2)) {
+            et_password_2.error = "Campo contraseña vacío"
+            return
+        }
+
+        if (!presenter.checkPasswordsMatch(pw1,pw2)) {
             et_password_1.error = "contraseñas no coinciden"
             et_password_2.error = "contraseñas no coinciden"
             return
+        }
 
         presenter.singUp(fullname,email,pw1)
 
