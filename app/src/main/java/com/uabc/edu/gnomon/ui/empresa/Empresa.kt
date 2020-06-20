@@ -6,18 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.uabc.edu.gnomon.R
+import kotlinx.android.synthetic.main.fragment_empresa.*
 
 /**
  * An example full-screen fragment that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-class Perfil : Fragment() {
+class Empresa : Fragment() {
     private val hideHandler = Handler()
-
+    private val BASE_URL = "http://test.beetsool.com/gnomon/index.html"
     @Suppress("InlinedApi")
     private val hidePart2Runnable = Runnable {
         // Delayed removal of status and navigation bar
@@ -63,7 +67,23 @@ class Perfil : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_perfil, container, false)
+
+        webView.webChromeClient = object : WebChromeClient()
+        {
+
+        }
+
+        webView.webViewClient = object : WebViewClient()
+        {
+
+        }
+
+        val settings = webView.settings
+        settings.javaScriptEnabled = true;
+        webView.loadUrl(BASE_URL)
+
+
+        return inflater.inflate(R.layout.fragment_empresa, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

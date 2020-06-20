@@ -9,19 +9,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebChromeClient
+import android.webkit.WebViewClient
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.uabc.edu.gnomon.R
 import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.fragment_empresa.*
 import kotlinx.android.synthetic.main.lista_favoritos.*
 
 class favoritos () : Fragment() {
 
 
     private lateinit var recyclerView: RecyclerView
-
+    private val BASE_URL = "http://test.beetsool.com/gnomon/index.html"
     companion object {
        fun newInstance() = favoritos()
 
@@ -44,13 +47,25 @@ class favoritos () : Fragment() {
         savedInstanceState: Bundle?
     ): View?
     {
-
+        
         val view = inflater.inflate(R.layout.favoritos_fragment, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = AdapterEmpresa(myDataSet)
+
+        webView.webChromeClient = object : WebChromeClient() {
+
+        }
+
+        webView.webViewClient = object :WebViewClient(){
+
+        }
+
+        val settings = webView.settings
+        settings.javaScriptEnabled = true
+        webView.loadUrl(BASE_URL)
 
         return view
 
