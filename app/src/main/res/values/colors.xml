@@ -6,4 +6,5 @@
     <color name="colorBack">#d0cece</color>
     <color name="colorSplash">#FFFFFF</color>
     <color name="colorText">#44464a</color>
+    <color name="black_overlay">#66000000</color>
 </resources>
