@@ -1,7 +1,7 @@
 package adaptadores
 
 import android.view.View
-import Entidades.Empresa
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
