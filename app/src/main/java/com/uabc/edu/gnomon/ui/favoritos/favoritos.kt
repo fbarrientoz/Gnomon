@@ -3,6 +3,7 @@ package com.uabc.edu.gnomon.ui.favoritos
 import Entidades.Empresa
 import adaptadores.AdapterEmpresa
 import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,16 +12,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
+import android.support.v4.app.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.uabc.edu.gnomon.MainActivity
 import com.uabc.edu.gnomon.R
+import com.uabc.edu.gnomon.ui.perfil.perfil
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_empresa.*
 import kotlinx.android.synthetic.main.lista_favoritos.*
 
-class favoritos () : Fragment() {
+class favoritos () : Fragment(),AdapterEmpresa.OnFavoritoListener {
 
 
     private lateinit var recyclerView: RecyclerView
@@ -47,7 +51,7 @@ class favoritos () : Fragment() {
         savedInstanceState: Bundle?
     ): View?
     {
-        
+
         val view = inflater.inflate(R.layout.favoritos_fragment, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.setHasFixedSize(true)
@@ -81,6 +85,15 @@ class favoritos () : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onFavoritoClick(position: Int) {
+        val fragment = perfil()
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+
+    }
 
 
 }
