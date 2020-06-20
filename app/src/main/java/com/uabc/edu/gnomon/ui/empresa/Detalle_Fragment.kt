@@ -6,7 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.widget.Button
 import com.uabc.edu.gnomon.R
+import com.uabc.edu.gnomon.R.id.button2
+import com.uabc.edu.gnomon.ui.calendario.Calendario
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_detalle.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +30,7 @@ class Detalle_Fragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -35,13 +41,23 @@ class Detalle_Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_detalle, container, false)
         val webview : WebView? = view.findViewById<WebView>(R.id.wvContainer)
         webview?.settings?.javaScriptEnabled = true
 
-        webview?.loadUrl("http://test.beetsool.com/gnomon/index.html")
+        val loadUrl = webview?.loadUrl("http://test.beetsool.com/gnomon/index.html")
+        val button:Button = view.findViewById(R.id.button2)
+        button.setOnClickListener {
+            val fragment = Calendario()
+            val fragmentManager = requireActivity().supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
+            //fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
 
-        return view
+            return view
     }
 
     companion object {
