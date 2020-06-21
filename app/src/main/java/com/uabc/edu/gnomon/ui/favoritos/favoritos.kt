@@ -69,7 +69,6 @@ class favoritos () : Fragment(),AdapterEmpresa.OnFavoritoListener {
         fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
-
     }
 
 

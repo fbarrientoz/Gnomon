@@ -33,6 +33,9 @@ class explorar : Fragment() {
     private val mAdapter by lazy {
         Adapter(myDataSet)
     }
+    private val mAdapter2 by lazy {
+        Adapter2(myDataSet)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +51,13 @@ class explorar : Fragment() {
 
             recyclerView.adapter = mAdapter
 
+            recyclerView = view.findViewById(R.id.recyclerView2)
+            recyclerView.setHasFixedSize(true)
+
+            val layoutManager2 = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+            recyclerView.layoutManager = layoutManager2
+
+            recyclerView.adapter = mAdapter2
 
         return view
 
