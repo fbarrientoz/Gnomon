@@ -47,7 +47,7 @@
         android:id="@+id/btn_signIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="152dp"
         android:background="@color/colorPrimaryDark"
         android:text="Iniciar"
         app:layout_constraintEnd_toEndOf="parent"
