@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import com.uabc.edu.gnomon.R
 
 class perfil : Fragment() {
@@ -20,7 +21,13 @@ class perfil : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.perfil_fragment, container, false)
+        val view = inflater.inflate(R.layout.perfil_fragment, container, false)
+        val webview : WebView? = view.findViewById<WebView>(R.id.wvPerfil)
+        webview?.settings?.javaScriptEnabled = true
+
+        webview?.loadUrl("http://test.beetsool.com/gnomon/perfil.html")
+
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
